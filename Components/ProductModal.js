@@ -37,7 +37,7 @@ export default {
               </div>
               <h3 class="mb-3">多圖新增</h3>
               <!-- 判斷 selectProduct.imagesUrl 是一個陣列 -->
-              <div v-if="Array.isArray(selectProduct.imagesUrl)">
+              <template  v-if="Array.isArray(selectProduct.imagesUrl)">
                 <div class="mb-1" v-for="(img, key) in selectProduct.imagesUrl" :key="img">
                   <div class="mb-3">
                     <label class="form-label">圖片網址</label>
@@ -58,7 +58,7 @@ export default {
                     刪除圖片
                   </button>
                 </div>
-              </div>
+              </template>
               <div v-else>
                 <button class="btn btn-outline-primary btn-sm d-block w-100" @click="selectProduct.imagesUrl = ['']">
                   新增圖片
@@ -80,7 +80,7 @@ export default {
                         v-model="selectProduct.category">
                 </div>
                 <div class="mb-3 col-md-6">
-                  <label for="price" class="form-label">單位</label>
+                  <label for="unit" class="form-label">單位</label>
                   <input id="unit" type="text" class="form-control" 
                         placeholder="請輸入單位"
                         v-model="selectProduct.unit">
@@ -90,13 +90,13 @@ export default {
                 <div class="mb-3 col-md-6">
                   <label for="origin_price" class="form-label">原價</label>
                   <input id="origin_price" type="number" min="0" class="form-control" placeholder="請輸入原價"
-                          v-model="selectProduct.origin_price">
+                          v-model.number="selectProduct.origin_price">
                 </div>
                 <div class="mb-3 col-md-6">
                   <label for="price" class="form-label">售價</label>
                   <input id="price" type="number" min="0" class="form-control"
                   placeholder="請輸入售價"
-                          v-model="selectProduct.price">
+                          v-model.number="selectProduct.price">
                 </div>
               </div>
               <hr>
@@ -109,7 +109,7 @@ export default {
               </div>
               <div class="mb-3">
                 <label for="content" class="form-label">說明內容</label>
-                <textarea id="description" type="text" class="form-control"
+                <textarea id="content" type="text" class="form-control"
                           placeholder="請輸入說明內容"
                           v-model="selectProduct.content">
                 </textarea>

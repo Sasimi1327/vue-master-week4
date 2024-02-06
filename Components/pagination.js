@@ -11,7 +11,7 @@ export default {
         :class="{ disabled: !pages.has_pre }"
         >
           <a class="page-link" href="#" aria-label="Previous"
-          @click="getProducts(pages.current_page - 1)"
+          @click.prevent="getProducts(pages.current_page - 1)"
           >
             <span aria-hidden="true">&laquo;</span>
           </a>
@@ -26,14 +26,14 @@ export default {
           >{{ page }}</span>
           <a class="page-link" href="#"
             v-else
-            @click="getProducts(page)"
+            @click.prevent="getProducts(page)"
           >{{ page }}</a>
         </li>
         <li class="page-item" 
           :class="{ disabled: !pages.has_next }"
         >
           <a class="page-link" href="#" aria-label="Next"
-            @click="getProducts(pages.current_page + 1)"
+            @click.prevent="getProducts(pages.current_page + 1)"
           >
             <span aria-hidden="true">&raquo;</span>
           </a>
